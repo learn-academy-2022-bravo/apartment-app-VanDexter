@@ -14,7 +14,7 @@ class Header extends Component {
     console.log("current_user:", current_user)
     return (
       <>
-        <h1>React in Rails with Devise</h1>
+        <h1>Apartment App</h1>
         <Nav>
           {logged_in &&
             <NavItem>
@@ -31,6 +31,9 @@ class Header extends Component {
               <a href={new_user_route} className="nav-link">Sign Up</a>
             </NavItem>
           }
+          <NavLink> 
+                
+          </NavLink>
         </Nav>
       </>
     )
