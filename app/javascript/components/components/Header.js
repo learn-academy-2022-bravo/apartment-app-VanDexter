@@ -31,6 +31,9 @@ class Header extends Component {
               <a href={new_user_route} className="nav-link">Sign Up</a>
             </NavItem>
           }
+          <NavLink> 
+                
+          </NavLink>
         </Nav>
       </>
     )
