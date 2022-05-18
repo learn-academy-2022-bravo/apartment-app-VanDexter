@@ -14,6 +14,14 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      apartments: []
+    }
+  }
+
+
   render() {
     return (
       
@@ -22,7 +30,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
 
-            <Route path="/apartmentindex" component={ApartmentIndex} />
+            <Route path="/foodindex" render={(props) => <ApartmentIndex foods={this.state.foods} />} />
 
             <Route path="/apartmentshow" component={ApartmentShow} />
 
