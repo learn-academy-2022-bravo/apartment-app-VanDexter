@@ -14,6 +14,24 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      apartments: []
+    }
+  }
+
+  componentDidMount(){
+    this.readApartment()
+  }
+
+readApartment = () => {
+  fetch("/apartments")
+  .then(response => response.json())
+  .then(payload => this.setState({apartments: payload}))
+  .catch(errors => console.log("Apartments read errors:", errors))
+} 
+
   render() {
     return (
       
@@ -21,11 +39,22 @@ class App extends Component {
           <Header {...this.props} />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/apartmentindex" component={ApartmentIndex} />
-            <Route path="/apartmentshow" component={ApartmentShow} />
+
+            <Route path="/apartmentindex" render={(props) => <ApartmentIndex apartments={this.state.apartments} />} />
+
+            <Route path="/apartmentshow/:id" render={(props) => {
+            let id = +props.match.params.id
+            let apartment = this.state.apartment.find(apartment => apartment.id === +id)
+            return <ApartmentShow deleteApartment={this.deleteApartment} apartment={apartment} />
+          }} />
+
+
             <Route path="/apartmentnew" component={ApartmentNew} />
+
             <Route path="/apartmentedit" component={ApartmentEdit} />
+
             <Route component={NotFound}/>
+
           </Switch>
         </Router>
         
