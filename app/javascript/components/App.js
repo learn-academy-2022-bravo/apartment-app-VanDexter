@@ -26,11 +26,14 @@ class App extends Component {
   }
 
 readApartment = () => {
+  // let userId = current_user.id
   fetch("/apartments")
+  // fetch(`/apartments?user_id=${userId}`)
   .then(response => response.json())
   .then(payload => this.setState({apartments: payload}))
   .catch(errors => console.log("Apartments read errors:", errors))
 } 
+
 
   render() {
     return (

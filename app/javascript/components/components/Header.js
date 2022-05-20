@@ -12,7 +12,7 @@ class Header extends Component {
       sign_out_route
     } = this.props
     console.log("logged_in:", logged_in)
-    console.log("current_user:", current_user)
+    console.log("current_user:", current_user.id)
     return (
       <>
         <h1>Apartment App</h1>

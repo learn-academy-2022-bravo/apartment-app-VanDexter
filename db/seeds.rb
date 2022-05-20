@@ -24,7 +24,7 @@ apartments = [
         bathrooms: 1, 
         pets: 'yes',
         image: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Sesame_Street_buildings_%28193090534%29.jpg',
-    },
+    }
   ]
   
   apartments.each do |each_apartment|
